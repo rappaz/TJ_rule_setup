@@ -1,0 +1,8 @@
+textarea, .uneditable-input {
+	width: 50% !important;
+	resize: both !important;
+}
+
+div.panel-body.html {
+	background-color: #eee !important;
+}
