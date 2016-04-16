@@ -1,0 +1,65 @@
+<form script="rule_setup.js" stylesheet="rule_custom.css">
+  <label>Rule Registration</label>
+  <fieldset submitButton="false">
+    <input type="dropdown" token="rule_cycle">
+      <label>룰 주기</label>
+    </input>
+    <input type="dropdown" token="rule_type">
+      <label>룰 유형</label>
+    </input>
+    <input type="dropdown" token="rule_level">
+      <label>위험도</label>
+    </input>
+    <input type="text" token="rule_name">
+      <label>룰 이름</label>
+    </input>
+    <input type="text" token="rule_desc">
+      <label>설명</label>
+    </input>
+    <html>
+      <div class="input input-text plunk-view" id="rule_query"></div>
+    </html>
+    <input type="text" token="rule_query">
+      <label>검색문</label>
+    </input>
+    <html>
+      <div class="input form-submit" id="button_registration">
+        <button class="btn btn-primary submit">등록</button>
+      </div>
+      <!--      <div id="button_registration" type="button" value="등록"/>-->
+    </html>
+  </fieldset>
+    <row>
+    <panel>
+      <html>
+        <h3>Query</h3>
+        <div class="text">
+          <div id="searchQuery">
+          </div>
+        </div>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <div id="custom_searchbar">
+        </div>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <div class="dashboard-element">
+          <div class="panel-head">
+            <h2>검증</h2>
+          </div>
+          <div class="panel-body">
+            <div id="result_table"></div>
+          </div>
+        </div>
+     </html>
+    </panel>
+  </row>
+</form>
