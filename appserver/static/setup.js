@@ -23,12 +23,21 @@ require([
         // ---------------------------------------------- //
 
         // 서비스 인스턴스 생성
-
-
         var service = mvc.createService({ owner: "nobody" });
 
         // savedsearch 인스턴스 생성
         var mySavedSearches = service.savedSearches();
+
+
+        // ---------------------------------------------- //
+        // -------------------- list -------------------- //
+        // ---------------------------------------------- //
+
+
+
+
+
+
 
 
         // ---------------------------------------------- //
@@ -50,7 +59,6 @@ require([
             console.log(searchQuery);
 
             // savedsearch 생성
-            
             mySavedSearches.create({
 
                 name: searchName,
@@ -93,14 +101,8 @@ require([
             // ModalView 인스턴스 생성
             var modal = new ModalView({ title: searchName,  search: detailSearch });
 
-            // e.preventDefault();
-
             console.log("title : " + searchName);
-
-                    // searchManager 인스턴스 생성
-
-
-             modal.show();
+            modal.show();
 
         });
 

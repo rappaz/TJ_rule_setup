@@ -1,0 +1,85 @@
+<form script="setup.js, tabs.js" stylesheet="rule.css, tabs.css">
+  <label>Rule Setup</label>
+  <description>룰 설정 화면</description>
+  <fieldset submitButton="false" autoRun="true"></fieldset>
+  <search id="savedsearchList">
+    <query>| rest /servicesNS/-/TJ/saved/searches
+	  | where 'eai:acl.app'="TJ"</query>
+  </search>
+  <row id="tabs">
+    <panel>
+      <html>
+        <ul id="tabs" class="nav nav-tabs" style="background-color:#eee !important">
+          <li class="active">
+            <a href="#" class="toggle-tab" data-toggle="tab" data-elements="tab1">룰 등록</a>
+          </li>
+          <li>
+			<a href="#" class="toggle-tab" data-toggle="tab" data-elements="tab2">룰 목록</a>
+          </li>
+          <li>
+			<a href="#" class="toggle-tab" data-toggle="tab" data-elements="tab3">룰 수정</a>
+          </li>
+        </ul>
+      </html>
+    </panel>
+  </row>
+  <row id="tab1">
+    <panel>
+      <html>
+    <div style="background-color:#eee !important">
+      <h1>룰 등록</h1>
+         <hr/>
+        <h3>Rule Name</h3>
+        <input id="input_name" type="text"/>
+      <br/>
+        <h3>Rule Description</h3>
+        <input id="input_desc" type="text"/>
+      <br/>
+        <hr/>
+      <br/>
+        <h3>Rule Query</h3>
+        <textarea id="input_query" type="text"/>
+      <br/>
+        <br/>
+        <hr/>
+        <input id="button_verify" type="button" value="검증"/>
+        <input id="button_save" type="button" value="저장"/>
+      </div>
+      </html>
+    </panel>
+  </row>
+  <row id="tab2">
+    <panel>
+      <html>
+      <h1>룰 목록</h1>
+      </html>
+      <table>Table</table>
+      <search base="savedsearchList">
+        <query>table author title description search</query>
+      </search>
+    </panel>
+  </row>
+  <row id="tab3">
+    <panel>
+      <html>
+    <div>
+      <h1>룰 수정</h1>
+      <hr/>
+      <h3>Rule Name</h3>
+      <input id="rule_name" type="text"/>
+      <br/>
+      <h3>Rule Description</h3>
+      <input id="rule_desc" type="text"/>
+      <br/>
+        <hr/>
+      <br/>
+      <h3>Rule Query</h3>      
+      <textarea id="rule_query" type="text"/>
+      </div>
+      <hr/>
+        <input id="button_modify" type="button" value="수정"/>
+        <input id="button_save_3" type="button" value="저장"/>
+      </html>
+    </panel>
+  </row>
+</form>
