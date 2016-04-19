@@ -8,6 +8,7 @@ define([
     ], function(_, Backbone, $, mvc, SearchManager, TableElement) {
 
     	this.childViews = [];
+
     	var modalTemplate = "<div id=\"pivotModal\" class=\"modal\">" +
                         "<div class=\"modal-header\"><h3><%- title %></h3></div>" +
                         "<div class=\"modal-body\"></div>" +
@@ -53,7 +54,7 @@ define([
                     height:'auto',
                     left: '5%',
                     'margin-left': '0',
-                    'max-height':'100%'
+                    'max-height':'80%'
                 });
                 
                 var search = mvc.Components.get(this.options.search.id);
@@ -65,6 +66,7 @@ define([
                         el: $('#modalVizualization')
                 }).render();
                 
+
                 this.childViews.push(detailTable);
                 search.startSearch();                
             },
@@ -81,6 +83,8 @@ define([
 				});
 		    }
 	    });
+
+
 	 
     //return the modal in order to access it
     return ModalView;

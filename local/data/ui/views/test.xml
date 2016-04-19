@@ -16,9 +16,6 @@
           <li>
 			<a href="#" class="toggle-tab" data-toggle="tab" data-elements="tab2">룰 목록</a>
           </li>
-          <li>
-			<a href="#" class="toggle-tab" data-toggle="tab" data-elements="tab3">룰 수정</a>
-          </li>
         </ul>
       </html>
     </panel>
@@ -53,33 +50,15 @@
       <html>
       <h1>룰 목록</h1>
       </html>
-      <table>Table</table>
-      <search base="savedsearchList">
-        <query>table author title description search</query>
-      </search>
-    </panel>
-  </row>
-  <row id="tab3">
-    <panel>
-      <html>
-    <div>
-      <h1>룰 수정</h1>
-      <hr/>
-      <h3>Rule Name</h3>
-      <input id="rule_name" type="text"/>
-      <br/>
-      <h3>Rule Description</h3>
-      <input id="rule_desc" type="text"/>
-      <br/>
-        <hr/>
-      <br/>
-      <h3>Rule Query</h3>      
-      <textarea id="rule_query" type="text"/>
-      </div>
-      <hr/>
-        <input id="button_modify" type="button" value="수정"/>
-        <input id="button_save_3" type="button" value="저장"/>
-      </html>
+      <table id="table_list">
+        <search>
+          <query>| rest /servicesNS/-/TJ/saved/searches | search eai:acl.app=TJ                | rename author as "생성자" search as "검색어" description as "설명" auto_summarize.cron_schedule as "검색주기" title as 이름 updated as "수정일시" alert.severity as 위험도              | table 생성자 이름 검색어 설명 위험도 검색주기 수정일시 config             | eval config = '이름'</query>
+        </search>Table<option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="count">10</option>
+      </table>
     </panel>
   </row>
 </form>

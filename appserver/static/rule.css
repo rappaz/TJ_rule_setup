@@ -6,3 +6,7 @@ textarea, .uneditable-input {
 div.panel-body.html {
 	background-color: #eee !important;
 }
+
+.modal .modal-body {
+    overflow-y: auto;
+}
