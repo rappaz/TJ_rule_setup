@@ -10,3 +10,15 @@ div.panel-body.html {
 .modal .modal-body {
     overflow-y: auto;
 }
+
+#btn_modify {
+	text-align: right;
+	background-color: white;
+    color: black;
+}
+
+#btn_delete {
+	text-align: right;
+	background-color: white;
+    color: black;
+}

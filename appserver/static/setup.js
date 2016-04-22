@@ -86,8 +86,6 @@ require([
             // 입력값 가져오기
             var searchName = $("#input_name").val();
             var searchQuery = $("#input_query").val();
-
-
             var detailSearch = new SearchManager({
                 id: result,
                 earliest_time: "-24h@h",
@@ -118,6 +116,7 @@ require([
             render: function($td, cell) {
 
                 console.log("cell.value :" + cell.value);
+                // config 클래스로 생성
                 $td.addClass('button').html(_.template('<button type="button" class="config" id="'+cell.value+'">설정</button>', {
 
                 }));
@@ -127,22 +126,20 @@ require([
 
 
         mvc.Components.get('table_list').getVisualization(function(tableView){
-            // Register custom cell renderer, the table will re-render automatically
             tableView.addCellRenderer(new ButtonForTable());
         });
 
 
-
+        // .config 로 클래스 호출.
         $('body').on('click', '.config', function(e){
 
             e.preventDefault();
             var modal = new ModalViewDetail({ title: "룰 상세보기"});
-
-
             modal.show();
-
             console.log(this.value);
         });
+
+
 
 
 
