@@ -33,6 +33,7 @@ require([
         var mySavedSearches = service.savedSearches();
 
 
+
         // ---------------------------------------------- //
         // --------------- Click Function --------------- //
         // ---------------------------------------------- //
@@ -46,6 +47,7 @@ require([
             var searchName = $("#input_name").val();
             var searchQuery = $("#input_query").val();
             var searchDesc = $("#input_desc").val();
+
 
             console.log(searchName);
             console.log(searchDesc);
@@ -130,13 +132,15 @@ require([
         });
 
 
-        // .config 로 클래스 호출.
-        $('body').on('click', '.config', function(e){
+        // 설정 클릭 펑션. .config 로 클래스 호출. rule name을 넘겨줘야 함
+        $(document.body).on('click', '.config', function(e){
 
             e.preventDefault();
-            var modal = new ModalViewDetail({ title: "룰 상세보기"});
+            console.log("test :" + this.id);
+            var searchName = this.id
+            var modal = new ModalViewDetail({ title: "룰 상세보기", rulename: searchName });
             modal.show();
-            console.log(this.value);
+            
         });
 
 

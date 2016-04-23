@@ -25,7 +25,7 @@ define([
 
 		    defaults: {
 		        /*default values if none are given i.e the modal’s title*/
-		        title : '상세보기'
+
 		    },
 
 		    initialize: function(options) {
@@ -34,6 +34,7 @@ define([
                 this.options = _.extend({}, this.defaults, this.options);
                 this.childViews = [];
                 console.log('Hello from the modal window: ', this.options.title);
+                console.log('Hello from the modal window\'s rulename : ', this.options.rulename);
                 this.template = _.template(modalTemplate);
 		    },
 
@@ -43,7 +44,7 @@ define([
 		    },
 
 		    render: function() {
-                var data = { title : this.options.title }
+                var data = { title : this.options.title, rulename : this.options.rulename };
         	    this.$el.html(this.template(data));
                 return this;
             },
@@ -66,6 +67,7 @@ define([
                 // (2, X) 가 좋을듯. -> (1, X) 로 변경.
                 // 레이블도 붙여야 함. ex) 룰 이름 : _______ -> ㅇㅇ.
                 // 대충 와꾸 잡고 일부 텍스트입력은 disabled. -> ㄴㄴ.
+
                 // savedsearch 에서 데이터 가져와야 하고 -> 클릭한 로우의 이름으로 savedsearch 호출.
                 // savedsearch 에 저장도 해야함. 존나 많네. 시벌. -> 상
                 // 아 언제하지 금보원 들어가기전엔 해야하는데. 하..
@@ -166,8 +168,12 @@ define([
         // -------------------- init -------------------- //    
         // ---------------------------------------------- //
 
+        console.log("언제까지하지 : " + temp);
+
         // 서비스 인스턴스 생성     
         var service = mvc.createService({ owner: "nobody" }); 
+        // The saved search created earlier
+
         var mySavedSearches = service.savedSearches();
 
         mySavedSearches.fetch(function(err, mySavedSearches) {
